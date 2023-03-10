@@ -23,11 +23,7 @@
 #include <errno.h>
 #include <string.h>
 #include <stdbool.h>
-#ifdef DDB_IN_TREE
-#include "../../deadbeef.h"
-#else
 #include <deadbeef/deadbeef.h>
-#endif
 
 #define OP_ERROR_SUCCESS 0
 #define OP_ERROR_INTERNAL -1
