@@ -150,13 +150,8 @@ static void on_process(void *userdata) {
             return;
         }
 
-#ifdef ENABLE_BUFFER_OPTION
         uint32_t buffersize = _buffersize;
         uint32_t nframes = SPA_MIN(buffersize, buf->datas[0].maxsize/_stride);
-#else
-        uint32_t buffersize = _buffersize;
-        uint32_t nframes = SPA_MIN(buffersize, buf->datas[0].maxsize/_stride);
-#endif
 
 #if PW_CHECK_VERSION(0, 3, 49)
         if (b->requested != 0) {
@@ -860,7 +855,7 @@ static DB_output_t plugin = {
     .plugin.flags = DDB_PLUGIN_FLAG_LOGGING,
     .plugin.type = DB_PLUGIN_OUTPUT,
     .plugin.id = PW_PLUGIN_ID,
-    .plugin.name = "PipeWire output plugin dev",
+    .plugin.name = "PipeWire output plugin",
     //.plugin.descr = "This is a new PipeWire plugin",
     .plugin.copyright =
         "Pipewire output plugin for DeaDBeeF Player\n"
